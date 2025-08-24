@@ -1,37 +1,40 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
 function App() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   return (
     <div className="min-h-screen bg-white">
       {/* Stripe Announcement Bar */}
-      <div className="bg-blue-600 text-white py-3 px-6">
+      <div className="bg-blue-600 text-white py-2 sm:py-3 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto flex items-center justify-center">
-          <span className="text-sm font-medium">
-            <strong className="font-semibold">Privy is joining stripe.</strong> Same product, same team—moving faster, shipping more.
+          <span className="text-xs sm:text-sm font-medium text-center">
+            <strong className="font-semibold">Privy is joining stripe.</strong> 
+            <span className="hidden sm:inline"> Same product, same team—moving faster, shipping more.</span>
           </span>
-          <button className="ml-6 text-sm border border-white/30 px-4 py-1.5 rounded-full hover:bg-white/10 transition-all duration-200 font-medium">
-            Learn more →
+          <button className="ml-3 sm:ml-6 text-xs sm:text-sm border border-white/30 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full hover:bg-white/10 transition-all duration-200 font-medium">
+            <span className="hidden sm:inline">Learn more →</span>
+            <span className="sm:hidden">Learn →</span>
           </button>
         </div>
       </div>
 
       {/* Header */}
       <header className="bg-white sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16 sm:h-20">
             {/* Logo */}
-            <div className="flex items-center space-x-3">
-              <div className="w-8 h-8 bg-black rounded-full flex items-center justify-center">
-                <div className="w-2 h-2 bg-white rounded-full"></div>
+            <div className="flex items-center space-x-2 sm:space-x-3">
+              <div className="w-6 h-6 sm:w-8 sm:h-8 bg-black rounded-full flex items-center justify-center">
+                <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-white rounded-full"></div>
               </div>
-              <div className="flex items-baseline space-x-2">
-                <span className="text-2xl font-bold text-black tracking-tight">privy</span>
-                <span className="text-sm text-gray-500 font-medium">a stripe company</span>
+              <div className="flex items-baseline space-x-1 sm:space-x-2">
+                <span className="text-xl sm:text-2xl font-bold text-black tracking-tight">privy</span>
+                <span className="text-xs sm:text-sm text-gray-500 font-medium hidden sm:block">a stripe company</span>
               </div>
             </div>
 
-            {/* Navigation */}
+            {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center space-x-8">
               <a href="#" className="text-gray-700 hover:text-black font-medium transition-colors flex items-center space-x-2">
                 <span>⚡</span><span>Product</span>
@@ -53,16 +56,66 @@ function App() {
               </a>
             </nav>
 
-            {/* Login Button */}
-            <button className="border border-gray-300 hover:border-gray-400 px-5 py-2.5 rounded-xl hover:bg-gray-50 transition-all duration-200 font-medium text-gray-900">
+            {/* Desktop Login Button */}
+            <button className="hidden sm:block border border-gray-300 hover:border-gray-400 px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl hover:bg-gray-50 transition-all duration-200 font-medium text-gray-900 text-sm sm:text-base">
               Log in
+            </button>
+
+            {/* Mobile Menu Button */}
+            <button 
+              className="lg:hidden p-2"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                {isMobileMenuOpen ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                )}
+              </svg>
             </button>
           </div>
         </div>
+
+        {/* Mobile Menu */}
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            className="lg:hidden absolute top-full left-0 right-0 bg-white border-t border-gray-200 shadow-lg z-40"
+          >
+            <div className="px-4 py-6 space-y-4">
+              <a href="#" className="flex items-center space-x-3 text-gray-700 hover:text-black font-medium py-2">
+                <span>⚡</span><span>Product</span>
+              </a>
+              <a href="#" className="flex items-center space-x-3 text-gray-700 hover:text-black font-medium py-2">
+                <span>🔧</span><span>Solutions</span>
+              </a>
+              <a href="#" className="flex items-center space-x-3 text-gray-700 hover:text-black font-medium py-2">
+                <span>♦</span><span>Pricing</span>
+              </a>
+              <a href="#" className="flex items-center space-x-3 text-gray-700 hover:text-black font-medium py-2">
+                <span>●</span><span>About</span>
+              </a>
+              <a href="#" className="text-gray-700 hover:text-black font-medium py-2 block">
+                Docs →
+              </a>
+              <a href="#" className="text-gray-700 hover:text-black font-medium py-2 block">
+                Demo →
+              </a>
+              <div className="pt-4 border-t border-gray-200">
+                <button className="w-full border border-gray-300 hover:border-gray-400 px-5 py-2.5 rounded-xl hover:bg-gray-50 transition-all duration-200 font-medium text-gray-900">
+                  Log in
+                </button>
+              </div>
+            </div>
+          </motion.div>
+        )}
       </header>
 
       {/* Hero Section */}
-      <section className="relative py-20 bg-white overflow-hidden">
+      <section className="relative py-12 sm:py-16 lg:py-20 bg-white overflow-hidden">
         {/* Colorful background pattern */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{
@@ -70,34 +123,34 @@ function App() {
           }}></div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 relative">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Left Content */}
-            <div className="lg:max-w-xl">
+            <div className="lg:max-w-xl text-center lg:text-left">
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
-                className="space-y-8"
+                className="space-y-6 sm:space-y-8"
               >
-                <h1 className="text-6xl lg:text-7xl font-bold text-black leading-[0.9] tracking-tight">
+                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-black leading-[0.9] tracking-tight">
                   Wallet<br/>
                   infrastructure,<br/>
                   <span className="text-black">for every app.</span>
                 </h1>
                 
-                <p className="text-lg text-gray-700 leading-relaxed font-normal">
+                <p className="text-base sm:text-lg text-gray-700 leading-relaxed font-normal max-w-lg mx-auto lg:mx-0">
                   Privy makes it easy to build on crypto rails. 
                   Securely spin up whitelabel wallets, sign 
                   transactions, and integrate onchain 
                   infrastructure—all through one simple API.
                 </p>
 
-                <div className="flex items-center space-x-4 pt-4">
-                  <button className="bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-900 transition-all duration-200 font-medium text-base">
+                <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-3 sm:space-y-0 sm:space-x-4 pt-4">
+                  <button className="w-full sm:w-auto bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-900 transition-all duration-200 font-medium text-base">
                     Get started
                   </button>
-                  <button className="border border-gray-300 px-6 py-3 rounded-lg hover:bg-gray-50 hover:border-gray-400 transition-all duration-200 font-medium text-gray-900 text-base">
+                  <button className="w-full sm:w-auto border border-gray-300 px-6 py-3 rounded-lg hover:bg-gray-50 hover:border-gray-400 transition-all duration-200 font-medium text-gray-900 text-base">
                     Talk to sales →
                   </button>
                 </div>
@@ -105,18 +158,18 @@ function App() {
             </div>
 
             {/* Right Visual Mockup */}
-            <div className="relative lg:pl-12">
+            <div className="relative lg:pl-12 mt-8 lg:mt-0 order-last">
               <motion.div
                 initial={{ opacity: 0, x: 30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="relative"
+                className="relative flex justify-center"
               >
                 {/* Background gradient blob */}
                 <div className="absolute inset-0 bg-gradient-to-br from-pink-200 via-purple-200 to-green-200 rounded-3xl transform rotate-6 scale-105 opacity-40"></div>
                 
                 {/* Main mobile mockup container */}
-                <div className="relative bg-white rounded-2xl shadow-2xl p-6 mx-auto max-w-sm">
+                <div className="relative bg-white rounded-2xl shadow-2xl p-4 sm:p-6 mx-auto w-full max-w-xs sm:max-w-sm">
                   {/* Mobile screen header */}
                   <div className="flex justify-between items-center mb-6">
                     <span className="text-xs text-gray-500">12:30</span>
@@ -228,25 +281,25 @@ function App() {
       </section>
 
       {/* Company Logos */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
-          <p className="text-gray-500 mb-16 font-medium text-lg">Powering 75M+ accounts for 1,000+ teams.</p>
-          <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-4 opacity-40">
-            <div className="text-xl font-bold text-gray-700">Jupiter</div>
-            <div className="text-xl font-bold text-gray-700">farcaster</div>
-            <div className="text-xl font-bold text-gray-700">stripe</div>
-            <div className="text-xl font-bold text-gray-700">Hyperliquid</div>
-            <div className="text-xl font-bold text-gray-700">BLACKBIRD</div>
-            <div className="text-xl font-bold text-gray-700">PUMP.FUN</div>
-            <div className="text-xl font-bold text-gray-700">lightspark</div>
-            <div className="text-xl font-bold text-gray-700">OpenSea</div>
-            <div className="text-xl font-bold text-gray-700">ProofofPlay</div>
+      <section className="py-12 sm:py-16 lg:py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-gray-500 mb-8 sm:mb-12 lg:mb-16 font-medium text-sm sm:text-base lg:text-lg">Powering 75M+ accounts for 1,000+ teams.</p>
+          <div className="flex flex-wrap justify-center items-center gap-x-4 sm:gap-x-6 lg:gap-x-8 gap-y-3 sm:gap-y-4 opacity-40">
+            <div className="text-sm sm:text-base lg:text-xl font-bold text-gray-700">Jupiter</div>
+            <div className="text-sm sm:text-base lg:text-xl font-bold text-gray-700">farcaster</div>
+            <div className="text-sm sm:text-base lg:text-xl font-bold text-gray-700">stripe</div>
+            <div className="text-sm sm:text-base lg:text-xl font-bold text-gray-700">Hyperliquid</div>
+            <div className="text-sm sm:text-base lg:text-xl font-bold text-gray-700">BLACKBIRD</div>
+            <div className="text-sm sm:text-base lg:text-xl font-bold text-gray-700">PUMP.FUN</div>
+            <div className="text-sm sm:text-base lg:text-xl font-bold text-gray-700">lightspark</div>
+            <div className="text-sm sm:text-base lg:text-xl font-bold text-gray-700">OpenSea</div>
+            <div className="text-sm sm:text-base lg:text-xl font-bold text-gray-700">ProofofPlay</div>
           </div>
         </div>
       </section>
 
       {/* Unlock Crypto Rails Section */}
-      <section className="relative py-32 bg-black text-white overflow-hidden">
+      <section className="relative py-16 sm:py-24 lg:py-32 bg-black text-white overflow-hidden">
         {/* Background pattern */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute inset-0" style={{
@@ -260,22 +313,22 @@ function App() {
         <div className="absolute bottom-32 left-32 w-3 h-3 bg-white/10 rotate-45"></div>
         <div className="absolute bottom-20 right-20 w-8 h-8 border border-white/10 rounded-full"></div>
 
-        <div className="max-w-6xl mx-auto px-6 lg:px-8 relative text-center">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="space-y-8"
+            className="space-y-6 sm:space-y-8"
           >
-            <h2 className="text-5xl lg:text-6xl font-bold leading-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
               Unlock crypto rails.
             </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
               Whether you're building in-app wallets or launching your own fleet, we 
               help you meet users where they are.
             </p>
-            <div className="pt-6">
-              <button className="border border-white/30 text-white px-8 py-4 rounded-xl hover:bg-white/10 transition-all duration-200 font-medium text-lg">
+            <div className="pt-4 sm:pt-6">
+              <button className="border border-white/30 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl hover:bg-white/10 transition-all duration-200 font-medium text-base sm:text-lg">
                 Get setup in 9 minutes →
               </button>
             </div>
