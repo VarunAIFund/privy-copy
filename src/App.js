@@ -712,56 +712,61 @@ function App() {
                         </div>
                       </div>
 
-                      {/* Apple Pay interface */}
+                      {/* Add funds interface */}
                       <div className="bg-white rounded-xl p-4">
-                        <div className="flex items-center justify-between mb-3">
-                          <span className="text-black font-semibold">🍎 Pay</span>
-                          <button className="text-gray-400">✕</button>
+                        <div className="flex items-center justify-center mb-4">
+                          <div className="w-8 h-1 bg-gray-300 rounded-full"></div>
+                        </div>
+                        
+                        <div className="text-center mb-6">
+                          <h3 className="text-black font-semibold text-lg mb-2">Add funds</h3>
+                          <p className="text-gray-500 text-sm">Select a method for funding your (App name) wallet.</p>
                         </div>
                         
                         <div className="space-y-3">
-                          <div className="flex items-center justify-between">
+                          <div className="border border-gray-200 rounded-lg p-3 flex items-center justify-between hover:bg-gray-50 transition-colors">
                             <div className="flex items-center space-x-3">
-                              <div className="w-8 h-5 bg-gradient-to-r from-yellow-400 via-red-400 to-pink-400 rounded"></div>
-                              <div>
-                                <div className="text-black text-sm font-medium">Apple Card</div>
-                                <div className="text-gray-500 text-xs">•••• 1234</div>
-                                <div className="text-gray-500 text-xs">27 Fredrick Butte Rd, Brothers O...</div>
+                              <div className="w-6 h-4 bg-gradient-to-r from-blue-400 to-purple-400 rounded text-white text-xs flex items-center justify-center">💳</div>
+                              <span className="text-black text-sm font-medium">Pay with card</span>
+                            </div>
+                            <div className="flex items-center space-x-2">
+                              <span className="text-xs bg-black text-white px-2 py-1 rounded">🍎Pay</span>
+                            </div>
+                          </div>
+                          
+                          <div className="border border-gray-200 rounded-lg p-3 flex items-center justify-between hover:bg-gray-50 transition-colors">
+                            <div className="flex items-center space-x-3">
+                              <div className="w-4 h-4 bg-gray-300 rounded flex items-center justify-center">
+                                <span className="text-xs">🏦</span>
                               </div>
+                              <span className="text-black text-sm">Bank transfer</span>
                             </div>
                             <span className="text-gray-400">→</span>
                           </div>
                           
-                          <div className="flex items-center justify-between">
+                          <div className="border border-gray-200 rounded-lg p-3 flex items-center justify-between hover:bg-gray-50 transition-colors">
                             <div className="flex items-center space-x-3">
-                              <div className="w-4 h-4 bg-gray-300 rounded-full"></div>
-                              <div>
-                                <div className="text-black text-sm">Contact</div>
-                                <div className="text-gray-500 text-xs">j.appleseed@icloud.com</div>
-                                <div className="text-gray-500 text-xs">(458) 555-2863</div>
+                              <div className="w-4 h-4 bg-gray-300 rounded flex items-center justify-center">
+                                <span className="text-xs">💱</span>
                               </div>
+                              <span className="text-black text-sm">Transfer from wallet or exchange</span>
                             </div>
                             <span className="text-gray-400">→</span>
                           </div>
                           
-                          <div className="flex items-center justify-between">
+                          <div className="border border-gray-200 rounded-lg p-3 flex items-center justify-between hover:bg-gray-50 transition-colors">
                             <div className="flex items-center space-x-3">
-                              <div className="w-4 h-4 bg-gray-300 rounded-full"></div>
-                              <div className="text-black text-sm">Ship to</div>
+                              <div className="w-4 h-4 bg-gray-300 rounded flex items-center justify-center">
+                                <span className="text-xs">📨</span>
+                              </div>
+                              <span className="text-black text-sm">Receive funds</span>
                             </div>
                             <span className="text-gray-400">→</span>
                           </div>
                         </div>
                         
-                        <div className="mt-4 pt-4 border-t border-gray-100">
-                          <div className="flex items-center justify-between">
-                            <span className="text-black font-semibold">Pay Circular xyz</span>
-                            <span className="text-black font-bold text-lg">$85.00</span>
-                          </div>
-                          <div className="mt-3 flex items-center justify-center">
-                            <div className="w-8 h-1 bg-blue-500 rounded-full"></div>
-                          </div>
-                          <div className="text-center text-gray-500 text-xs mt-2">Processing</div>
+                        <div className="mt-6 text-center">
+                          <span className="text-xs text-gray-500">Protected by ● privy</span>
                         </div>
                       </div>
                     </div>
@@ -1094,6 +1099,286 @@ function App() {
           </motion.div>
         </div>
       </section>
+
+      {/* Contact Form Section */}
+      <section className="relative py-32 bg-white overflow-hidden">
+        {/* Background pattern */}
+        <div className="absolute inset-0 opacity-[0.02]">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `url("data:image/svg+xml,%3csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3e%3cg fill='none' fill-rule='evenodd'%3e%3cg fill='%23000' fill-opacity='1'%3e%3cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3e%3c/g%3e%3c/g%3e%3c/svg%3e")`
+          }}></div>
+        </div>
+
+        {/* Decorative elements */}
+        <div className="absolute top-32 right-32 w-4 h-4 bg-black/5 rotate-45"></div>
+        <div className="absolute bottom-20 left-16 w-3 h-3 border border-black/10 rotate-45"></div>
+
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16 items-start">
+            {/* Left Content */}
+            <div>
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+              >
+                <h2 className="text-4xl lg:text-5xl font-bold text-black mb-6 leading-tight">
+                  Talk to us.
+                </h2>
+                <p className="text-lg text-gray-600 leading-relaxed">
+                  Tell us what you're building. We'll show you how to bring it onchain with 
+                  secure, compliant wallet infrastructure.
+                </p>
+              </motion.div>
+            </div>
+
+            {/* Right Contact Form */}
+            <div>
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+              >
+                <form className="space-y-6">
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-sm font-medium text-gray-900 mb-2">
+                        First Name<span className="text-red-500">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent outline-none transition-all duration-200"
+                        required
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-900 mb-2">
+                        Last Name<span className="text-red-500">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent outline-none transition-all duration-200"
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-900 mb-2">
+                      Email<span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="email"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent outline-none transition-all duration-200"
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-900 mb-2">
+                      Company name<span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent outline-none transition-all duration-200"
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-900 mb-2">
+                      Company website (or link to account on X or LinkedIn)<span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="url"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent outline-none transition-all duration-200"
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-900 mb-2">
+                      What best describes the industry your company is in?<span className="text-red-500">*</span>
+                    </label>
+                    <select className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent outline-none transition-all duration-200 bg-white">
+                      <option value="">Select an industry</option>
+                      <option value="fintech">Fintech</option>
+                      <option value="gaming">Gaming</option>
+                      <option value="defi">DeFi</option>
+                      <option value="nft">NFT/Digital Collectibles</option>
+                      <option value="infrastructure">Infrastructure</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-900 mb-2">
+                      Anything else?
+                    </label>
+                    <textarea
+                      rows={4}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent outline-none transition-all duration-200 resize-none"
+                      placeholder="Tell us more about your project, needs, or timeline."
+                    ></textarea>
+                  </div>
+
+                  <div className="flex items-center space-x-3">
+                    <div className="bg-blue-500 text-white text-xs px-3 py-2 rounded flex items-center space-x-2">
+                      <span>🔒</span>
+                      <span>protected by reCAPTCHA</span>
+                    </div>
+                    <div className="bg-gray-100 rounded p-2">
+                      <div className="w-8 h-8 bg-gray-300 rounded-full animate-spin"></div>
+                    </div>
+                  </div>
+
+                  <button
+                    type="submit"
+                    className="bg-black text-white px-8 py-4 rounded-lg hover:bg-gray-900 transition-all duration-200 font-semibold text-lg"
+                  >
+                    Submit
+                  </button>
+                </form>
+              </motion.div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Newsletter Signup */}
+      <section className="relative py-20 bg-white overflow-hidden">
+        {/* Decorative pattern */}
+        <div className="absolute inset-0 opacity-[0.02]">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `url("data:image/svg+xml,%3csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3e%3cg fill='none' fill-rule='evenodd'%3e%3cg fill='%23000' fill-opacity='1'%3e%3cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3e%3c/g%3e%3c/g%3e%3c/svg%3e")`
+          }}></div>
+        </div>
+
+        {/* Floating decorative elements */}
+        <div className="absolute top-16 left-16 w-3 h-3 border border-black/10 rotate-45"></div>
+        <div className="absolute top-24 right-24 w-2 h-2 bg-black/5 rotate-45"></div>
+        <div className="absolute bottom-16 left-1/3 w-4 h-4 border border-black/10 rounded-full"></div>
+        <div className="absolute bottom-20 right-16 w-3 h-3 border border-black/10 rotate-45"></div>
+
+        <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="flex items-center justify-center space-x-4"
+          >
+            <span className="text-lg font-medium text-gray-900">Subscribe to the Privy monthly</span>
+            <div className="flex items-center space-x-3">
+              <input
+                type="email"
+                placeholder="your@email.com"
+                className="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent outline-none transition-all duration-200 bg-gray-50 text-gray-600 placeholder-gray-500 min-w-[200px]"
+              />
+              <button className="bg-gray-800 text-white px-6 py-3 rounded-lg hover:bg-gray-900 transition-all duration-200 font-medium">
+                Subscribe
+              </button>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-white border-t border-gray-100 py-16">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+            {/* Product Column */}
+            <div>
+              <div className="flex items-center space-x-2 mb-6">
+                <span className="text-lg">⚡</span>
+                <h3 className="font-semibold text-gray-900">Product</h3>
+              </div>
+              <ul className="space-y-3 text-gray-600">
+                <li><a href="#" className="hover:text-gray-900 transition-colors">Wallet infrastructure</a></li>
+                <li><a href="#" className="hover:text-gray-900 transition-colors">Onboarding</a></li>
+                <li><a href="#" className="hover:text-gray-900 transition-colors">Key management</a></li>
+                <li><a href="#" className="hover:text-gray-900 transition-colors">Integrations</a></li>
+                <li><a href="#" className="hover:text-gray-900 transition-colors">Docs</a></li>
+                <li><a href="#" className="hover:text-gray-900 transition-colors">Demo</a></li>
+              </ul>
+            </div>
+
+            {/* Solutions Column */}
+            <div>
+              <div className="flex items-center space-x-2 mb-6">
+                <span className="text-lg">🔧</span>
+                <h3 className="font-semibold text-gray-900">Solutions</h3>
+              </div>
+              <ul className="space-y-3 text-gray-600">
+                <li><a href="#" className="hover:text-gray-900 transition-colors">Fintech + payments</a></li>
+                <li><a href="#" className="hover:text-gray-900 transition-colors">Defi + trading</a></li>
+                <li><a href="#" className="hover:text-gray-900 transition-colors">Consumer</a></li>
+                <li><a href="#" className="hover:text-gray-900 transition-colors">Gaming</a></li>
+                <li><a href="#" className="hover:text-gray-900 transition-colors">AI agents</a></li>
+              </ul>
+            </div>
+
+            {/* Company Column */}
+            <div>
+              <div className="flex items-center space-x-2 mb-6">
+                <span className="text-lg">●</span>
+                <h3 className="font-semibold text-gray-900">Company</h3>
+              </div>
+              <ul className="space-y-3 text-gray-600">
+                <li><a href="#" className="hover:text-gray-900 transition-colors">Careers</a></li>
+                <li><a href="#" className="hover:text-gray-900 transition-colors">Security</a></li>
+                <li><a href="#" className="hover:text-gray-900 transition-colors">Blog</a></li>
+                <li><a href="#" className="hover:text-gray-900 transition-colors">Customer love</a></li>
+                <li><a href="#" className="hover:text-gray-900 transition-colors">Brand guidelines</a></li>
+              </ul>
+            </div>
+
+            {/* Resources Column */}
+            <div>
+              <div className="flex items-center space-x-2 mb-6">
+                <span className="text-lg">♦</span>
+                <h3 className="font-semibold text-gray-900">Resources</h3>
+              </div>
+              <ul className="space-y-3 text-gray-600">
+                <li><a href="#" className="hover:text-gray-900 transition-colors">Status</a></li>
+                <li><a href="#" className="hover:text-gray-900 transition-colors">Support</a></li>
+                <li><a href="#" className="hover:text-gray-900 transition-colors">Privacy policy</a></li>
+                <li><a href="#" className="hover:text-gray-900 transition-colors">User terms of service</a></li>
+                <li><a href="#" className="hover:text-gray-900 transition-colors">Dev terms of service</a></li>
+                <li><a href="#" className="hover:text-gray-900 transition-colors">Bug bounty</a></li>
+                <li><a href="#" className="hover:text-gray-900 transition-colors">Embedded wallets 101</a></li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Footer Bottom */}
+          <div className="flex flex-col lg:flex-row justify-between items-center pt-12 mt-12 border-t border-gray-100">
+            <div className="flex items-center space-x-6 mb-6 lg:mb-0">
+              <div className="w-8 h-8 bg-black rounded-full flex items-center justify-center">
+                <div className="w-2 h-2 bg-white rounded-full"></div>
+              </div>
+              <span className="text-lg font-medium text-gray-900">Technical decisions are moral decisions.</span>
+            </div>
+
+            <div className="flex items-center space-x-6">
+              <div className="flex items-center space-x-4">
+                <a href="#" className="text-gray-400 hover:text-gray-600 transition-colors">
+                  <span className="text-xl">🌐</span>
+                </a>
+                <a href="#" className="text-gray-400 hover:text-gray-600 transition-colors">
+                  <span className="text-xl">📝</span>
+                </a>
+                <a href="#" className="text-gray-400 hover:text-gray-600 transition-colors">
+                  <span className="text-xl">✕</span>
+                </a>
+                <a href="#" className="text-gray-400 hover:text-gray-600 transition-colors">
+                  <span className="text-xl">💻</span>
+                </a>
+              </div>
+              <span className="text-sm text-gray-500">©2025 Horkos, Inc.</span>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
